@@ -1,9 +1,9 @@
 (()=>{'use strict';
 const cfg=window.CUMPLE_CONFIG;
 if(!cfg){document.getElementById('app').textContent='Configuration missing. See README.md';return;}
-const KEY='cumple-exe-v7';const LEGACY_KEY='cumple-exe-v6';
+const KEY='cumple-exe-v8';const LEGACY_KEY='cumple-exe-v7';
 const initial={booted:false,windowOpen:false,step:0, name:'', selected:[], errors:0, wrongStreak:0, theftIndex:0, selectedTime:'', guesses:0, packed:[], question:0, choice:'', appealStage:'', appealName:'', minister:true, sound:false, completed:false, flightMistakes:0, dossierOpen:false, pacoPokes:0, mood:'neutral'};
-let s={...initial};try{const previous=JSON.parse(localStorage.getItem(KEY)||localStorage.getItem(LEGACY_KEY));if(previous&&typeof previous.step==='number')s={...s,...previous}}catch{}
+let s={...initial};try{const previous=JSON.parse(localStorage.getItem(KEY)||localStorage.getItem(LEGACY_KEY));if(previous&&typeof previous.step==='number'){s={...s,...previous};if(!localStorage.getItem(KEY)&&s.step>=7&&!s.appealStage){s.step=6;s.appealStage='denied';s.completed=false;s.windowOpen=true;s.booted=true}}}catch{}
 const $=document.getElementById('app');const esc=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const save=()=>localStorage.setItem(KEY,JSON.stringify(s));let toastTimeout;
 let bubble='Su expediente está siendo observado. No haga tonterías.';
