@@ -96,3 +96,31 @@ body.paco-stole-cursor,body.paco-stole-cursor *{cursor:none!important}
 @keyframes outageSpin{to{transform:rotate(360deg)}}
 .outage-timer{font-size:16px;font-weight:bold}.outage-screen small{display:block;margin-top:35px;color:#ffc8c8;font-size:10px;letter-spacing:1px}
 @media(prefers-reduced-motion:reduce){.xp-hourglass,.xp-load-meter,.outage-icon,.outage-spinner{animation:none!important}}
+
+/* v0.8 appeal workflow */
+
+.appeal-denied,.appeal-landing,.appeal-form,.appeal-approved{animation:appealIn .4s ease both;padding:clamp(14px,3vw,28px);border-radius:7px;overflow:hidden}
+@keyframes appealIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.appeal-denied{background:linear-gradient(130deg,#fff0e9,#ffddd6);border:2px solid #ba2939;text-align:center}
+.appeal-denied h2{font-size:clamp(32px,6vw,55px);color:#ab152b}
+.appeal-stamp{display:inline-block;border:5px double #ab152b;color:#ab152b;padding:10px 22px;transform:rotate(-8deg);font-weight:900;font-size:26px;margin:15px}
+.appeal-reason{text-align:left;background:white;border-left:7px solid #bc3041;padding:15px;margin:20px 0}
+.appeal-landing{text-align:center;background:#fff8e4;border:2px dashed #a88d46}
+.appeal-emoji{font-size:50px;margin:15px}.appeal-landing .warning{text-align:left}
+.appeal-two-buttons{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin:22px 0}.appeal-two-buttons .btn{flex:1 1 185px}
+.appeal-nochoice{font-weight:900;color:#b22b44;font-size:16px;transform:rotate(-2deg)}
+.appeal-form{background:#e2eaf5;border:2px solid #235bb4}
+.appeal-formbar{background:#255dc2;color:white;padding:9px;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.appeal-paper{background:#fffdf2;border:1px solid #c4bb9d;box-shadow:5px 5px 0 #7774;padding:clamp(16px,4vw,32px);margin:14px 0}
+.appeal-paper-top{text-align:center;font-size:12px;letter-spacing:1px}.appeal-crown{font-size:40px;text-align:center;color:#b22837;margin:10px}
+.appeal-paper h2{text-align:center;font-size:clamp(18px,3vw,27px)}
+.appeal-sentence{font-size:clamp(16px,2.5vw,20px);line-height:2;margin:23px 0}
+.appeal-name{border:none;border-bottom:3px dashed #245edb;background:#eef6ff;padding:6px;font:inherit;font-weight:800;color:#14459b;width:180px;max-width:100%}
+.appeal-checkboxes{background:#f3f0e7;padding:12px;font-size:13px}.appeal-checkboxes p{margin:8px}
+.appeal-sign{border-bottom:1px solid #999;padding:15px 0}.appeal-foot{font-size:12px;opacity:.7;font-style:italic}
+.appeal-approved{background:linear-gradient(135deg,#e4ffdc,#cef2d1);border:5px double #358747;text-align:center;min-height:380px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:13px}
+.appeal-approved h2{color:#16612e;font-size:clamp(32px,5vw,54px);line-height:1.13}
+.appeal-approved-icon{font-size:58px;animation:appealPop .6s ease}@keyframes appealPop{from{transform:scale(.2)}70%{transform:scale(1.25)}to{transform:scale(1)}}
+.appeal-approval-stamp{border:6px double #167b33;color:#167b33;padding:12px 17px;font-size:clamp(17px,3vw,25px);font-weight:900;transform:rotate(-5deg)}
+@media(max-width:600px){.appeal-formbar{flex-direction:column;align-items:stretch}}
+@media(prefers-reduced-motion:reduce){.appeal-denied,.appeal-landing,.appeal-form,.appeal-approved,.appeal-approved-icon{animation:none}}
